@@ -1,20 +1,10 @@
-import java.math.BigInteger;
 
 public class Find1 extends Find {
 	@Override
 	public Cantor find(final Cantor2Bool p) {
-		return new Cantor() {
-			Cantor result;
-
+		return new LazyCantor() {
 			@Override
-			public Boolean call(BigInteger param) {
-				if (result == null)
-					result = calcResult();
-
-				return result.call(param);
-			}
-
-			private Cantor calcResult() {
+			protected Cantor getImpl() {
 				Cantor2Bool startWithFalse = new Cantor2Bool() {
 					@Override
 					public Boolean call(Cantor a) {
@@ -36,5 +26,4 @@ public class Find1 extends Find {
 			}
 		};
 	}
-
 }

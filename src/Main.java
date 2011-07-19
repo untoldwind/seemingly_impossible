@@ -233,14 +233,14 @@ public class Main {
 		System.out.println((System.currentTimeMillis() - start) + " ms");
 
 		start = System.currentTimeMillis();
-		System.out.println("sameelements3 = "
+		System.out.println("sameelements4 = "
 				+ find.sameelements(
 						mklist(BigInteger.valueOf(6).pow(60), BigInteger.valueOf(5).pow(50), 1, 5, 6, 6, 8, 9, 3, 4, 6, 2, 4,6, 1, BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(70), 1, 1, 1, 3, BigInteger.valueOf(3).pow(30)),
 						mklist(1, 2, 3, 4, 5, 6, 8, 9, BigInteger.valueOf(3).pow(30), BigInteger.valueOf(5).pow(50), BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(700))));
 		System.out.println((System.currentTimeMillis() - start) + " ms");
 
 		start = System.currentTimeMillis();
-		System.out.println("sameelements3 = "
+		System.out.println("sameelements5 = "
 				+ find.sameelements(
 						mklist(BigInteger.valueOf(6).pow(60), BigInteger.valueOf(5).pow(50), 1, 5, 6, 6, 8, 9, 3, 4, 6, 2, 4,6, 1, BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(700), 1, 1, 1, 3, BigInteger.valueOf(3).pow(30)),
 						mklist(1, 2, 3, 4, 5, 6, 8, 9, BigInteger.valueOf(3).pow(30), BigInteger.valueOf(5).pow(50), BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(700))));
@@ -264,13 +264,15 @@ public class Main {
 		new Main(new Find1()).run();
 		new Main(new Find2()).run();
 		new Main(new Find3()).run();
+		new Main(new FindJ()).run();
+		
 		new Main(new Find1()).run2();
 		new Main(new Find3()).run2();
-		new Main(new Find3()).run3();
-
-		new Main(new FindJ()).run();
 		new Main(new FindJ()).run2();
+
+		new Main(new Find3()).run3();
 		new Main(new FindJ()).run3();
+		
 		new Main(new FindJ()).run4();
 
 		new Main(new Find1()).runModulus();
