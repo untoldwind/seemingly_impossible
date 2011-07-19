@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 
 
-public class PrependOp2 extends Cantor {
+public class PrependOp2 implements Cantor {
 	Function<Void, Boolean> x;
 	Cantor a;
 

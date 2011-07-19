@@ -1,9 +1,4 @@
 import java.math.BigInteger;
 
-
-
-public abstract class Cantor extends Function<BigInteger, Boolean>{
-	public String toString() {
-		return "Cantor";
-	}
+public interface Cantor extends Function<BigInteger, Boolean> {
 }

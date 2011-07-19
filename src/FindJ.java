@@ -14,7 +14,7 @@ public class FindJ extends Find {
 		return tree;
 	}
 
-	class CantorTree extends Cantor {
+	class CantorTree implements Cantor {
 		Node root;
 
 		@Override

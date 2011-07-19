@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 
 
-public class Proj extends Cantor2Any<Long> {
+public class Proj implements Cantor2Any<Long> {
 	BigInteger i;
 	
 	public Proj(long i) {

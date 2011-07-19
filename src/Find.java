@@ -17,7 +17,7 @@ public abstract class Find {
 			public Boolean call(Cantor a) {
 				return !p.call(a);
 			}
-		});		
+		});
 	}
 	
 	public <Y> boolean equal(final Cantor2Any<Y> f, final Cantor2Any<Y> g) {

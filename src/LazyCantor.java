@@ -1,6 +1,6 @@
 import java.math.BigInteger;
 
-public abstract class LazyCantor extends Cantor {
+public abstract class LazyCantor implements Cantor {
 	Cantor impl;
 
 	@Override

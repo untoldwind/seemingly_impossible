@@ -1,4 +1,3 @@
-
-public abstract class Function<P, R> {
-	public abstract R call(P param);
+public interface Function<P, R> {
+	R call(P param);
 }

@@ -1,3 +1,3 @@
 
-public abstract class Cantor2Bool extends Cantor2Any<Boolean> {
+public interface Cantor2Bool extends Cantor2Any<Boolean> {
 }
