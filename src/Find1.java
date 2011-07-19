@@ -11,7 +11,7 @@ public class Find1 extends Find {
 						return p.call(new PrependOp(false, a));
 					}
 				};
-				if (forsome.call(startWithFalse)) {
+				if (forsome(startWithFalse)) {
 					return new PrependOp(false, find(startWithFalse));
 				} else {
 					Cantor2Bool startWithTrue = new Cantor2Bool() {
