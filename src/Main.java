@@ -166,6 +166,45 @@ public class Main {
 		System.out.println((System.currentTimeMillis() - start) + " ms");
 	}
 
+	public void runModulus() {
+		System.out.println("------------------------------");
+		System.out.println("Run Modulus: " + find.getClass().getName());
+		
+		long start = System.currentTimeMillis();
+		System.out.println("modulus (a -> 45000) = "
+				+ find.modulus(new Cantor2Any<BigInteger>() {
+					@Override
+					public BigInteger call(Cantor param) {
+						return BigInteger.valueOf(45000);
+					}
+				}));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+		start = System.currentTimeMillis();
+		System.out.println("modulus (proj 1) = "
+				+ find.modulus(new Proj(BigInteger.valueOf(1))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+		start = System.currentTimeMillis();
+		System.out.println("modulus (proj 2) = "
+				+ find.modulus(new Proj(BigInteger.valueOf(2))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+		start = System.currentTimeMillis();
+		System.out.println("modulus (proj 3) = "
+				+ find.modulus(new Proj(BigInteger.valueOf(3))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+		start = System.currentTimeMillis();
+		System.out.println("modulus (proj 4) = "
+				+ find.modulus(new Proj(BigInteger.valueOf(4))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+		start = System.currentTimeMillis();
+		System.out.println("modulus (proj 5) = "
+				+ find.modulus(new Proj(BigInteger.valueOf(5))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+		start = System.currentTimeMillis();
+		System.out.println("modulus (proj 6) = "
+				+ find.modulus(new Proj(BigInteger.valueOf(6))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+	}
+
 	public static void main(String[] args) {
 		new Main(new Find1()).run();
 		new Main(new Find2()).run();
@@ -179,5 +218,7 @@ public class Main {
 		new Main(new FindJ()).run3();
 		new Main(new FindJ()).run4();
 
+		new Main(new Find1()).runModulus();
+		new Main(new FindJ()).runModulus();
 	}
 }
