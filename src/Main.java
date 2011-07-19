@@ -1,4 +1,6 @@
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 	Find find;
@@ -204,7 +206,60 @@ public class Main {
 				+ find.modulus(new Proj(BigInteger.valueOf(6))));
 		System.out.println((System.currentTimeMillis() - start) + " ms");
 	}
+	
+	public void runSameelements() {
+		System.out.println("------------------------------");
+		System.out.println("Run sameelements: " + find.getClass().getName());
 
+		long start = System.currentTimeMillis();
+		System.out.println("sameelements1 = "
+				+ find.sameelements(
+						mklist(BigInteger.valueOf(6).pow(60), BigInteger.valueOf(5).pow(50), 1, 5, 6, 6, 8, 9, 3, 4, 6, 2, 4,6, 1, BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(700), 1, 1, 1, 3, BigInteger.valueOf(3).pow(30)),
+						mklist(1, 2, 3, 4, 5, 6, 7, 8, 9, BigInteger.valueOf(3).pow(30), BigInteger.valueOf(5).pow(50), BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(70))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+
+		start = System.currentTimeMillis();
+		System.out.println("sameelements2 = "
+				+ find.sameelements(
+						mklist(BigInteger.valueOf(6).pow(60), BigInteger.valueOf(5).pow(50), 1, 5, 6, 6, 8, 9, 3, 4, 6, 2, 4,6, 1, BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(70), 1, 1, 1, 3, BigInteger.valueOf(3).pow(30)),
+						mklist(1, 2, 3, 4, 5, 6, 7, 8, 9, BigInteger.valueOf(3).pow(30), BigInteger.valueOf(5).pow(50), BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(70))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+
+		start = System.currentTimeMillis();
+		System.out.println("sameelements3 = "
+				+ find.sameelements(
+						mklist(BigInteger.valueOf(6).pow(60), BigInteger.valueOf(5).pow(50), 1, 5, 6, 6, 8, 9, 3, 4, 6, 2, 4,6, 1, BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(70), 1, 1, 1, 3, BigInteger.valueOf(3).pow(30)),
+						mklist(1, 2, 3, 4, 5, 6, 8, 9, BigInteger.valueOf(3).pow(30), BigInteger.valueOf(5).pow(50), BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(70))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+
+		start = System.currentTimeMillis();
+		System.out.println("sameelements3 = "
+				+ find.sameelements(
+						mklist(BigInteger.valueOf(6).pow(60), BigInteger.valueOf(5).pow(50), 1, 5, 6, 6, 8, 9, 3, 4, 6, 2, 4,6, 1, BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(70), 1, 1, 1, 3, BigInteger.valueOf(3).pow(30)),
+						mklist(1, 2, 3, 4, 5, 6, 8, 9, BigInteger.valueOf(3).pow(30), BigInteger.valueOf(5).pow(50), BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(700))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+
+		start = System.currentTimeMillis();
+		System.out.println("sameelements3 = "
+				+ find.sameelements(
+						mklist(BigInteger.valueOf(6).pow(60), BigInteger.valueOf(5).pow(50), 1, 5, 6, 6, 8, 9, 3, 4, 6, 2, 4,6, 1, BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(700), 1, 1, 1, 3, BigInteger.valueOf(3).pow(30)),
+						mklist(1, 2, 3, 4, 5, 6, 8, 9, BigInteger.valueOf(3).pow(30), BigInteger.valueOf(5).pow(50), BigInteger.valueOf(6).pow(60), BigInteger.valueOf(7).pow(700))));
+		System.out.println((System.currentTimeMillis() - start) + " ms");
+	}
+
+	List<BigInteger> mklist(Object... elements) {
+		List<BigInteger> result = new ArrayList<BigInteger>(elements.length);
+		
+		for ( Object element : elements)
+			if ( element instanceof BigInteger)
+				result.add((BigInteger)element);
+			else if ( element instanceof Integer)
+				result.add(BigInteger.valueOf((Integer)element));
+			else
+				throw new RuntimeException("Unknown element type: " + element.getClass());
+		return result;
+	}
+	
 	public static void main(String[] args) {
 		new Main(new Find1()).run();
 		new Main(new Find2()).run();
@@ -220,5 +275,7 @@ public class Main {
 
 		new Main(new Find1()).runModulus();
 		new Main(new FindJ()).runModulus();
+
+		new Main(new FindJ()).runSameelements();
 	}
 }

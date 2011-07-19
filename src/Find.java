@@ -1,4 +1,5 @@
 import java.math.BigInteger;
+import java.util.List;
 
 public abstract class Find {
 	protected Function<Cantor2Bool, Boolean> forsome;
@@ -39,13 +40,14 @@ public abstract class Find {
 		return least(new Cantor() {
 			@Override
 			public Boolean call(final BigInteger n) {
-				return forevery.call(new Cantor2Bool() {					
+				return forevery.call(new Cantor2Bool() {
 					@Override
 					public Boolean call(final Cantor a) {
-						return forevery.call(new Cantor2Bool() {							
+						return forevery.call(new Cantor2Bool() {
 							@Override
 							public Boolean call(final Cantor b) {
-								return !eq(n,a,b) || f.call(a).equals(f.call(b));
+								return !eq(n, a, b)
+										|| f.call(a).equals(f.call(b));
 							}
 						});
 					}
@@ -71,5 +73,23 @@ public abstract class Find {
 			return true;
 		n = n.subtract(BigInteger.ONE);
 		return a.call(n) == b.call(n) && eq(n, a, b);
+	}
+
+	public Cantor2Bool pointwiseand(final List<BigInteger> a) {
+		return new Cantor2Bool() {			
+			@Override
+			public Boolean call(Cantor b) {
+				boolean result = true;
+				
+				for ( BigInteger n : a)
+					result = result && b.call(n);
+				
+				return result;
+			}
+		};
+	}
+	
+	public boolean sameelements(List<BigInteger> a, List<BigInteger> b) {
+		return equal(pointwiseand(a), pointwiseand(b));
 	}
 }
